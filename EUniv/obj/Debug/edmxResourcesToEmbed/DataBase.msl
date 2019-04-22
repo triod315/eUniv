@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EUnivModelStoreContainer" CdmEntityContainer="EUnivEntities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="EUnivModel.admin">
+        <MappingFragment StoreEntitySet="admins">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="EUnivModel.cours">
+        <MappingFragment StoreEntitySet="courses">
+          <ScalarProperty Name="cousre_id" ColumnName="cousre_id" />
+          <ScalarProperty Name="course_name" ColumnName="course_name" />
+          <ScalarProperty Name="course_type" ColumnName="course_type" />
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="programs">
+      <EntityTypeMapping TypeName="EUnivModel.program">
+        <MappingFragment StoreEntitySet="programs">
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
+          <ScalarProperty Name="program_name" ColumnName="program_name" />
+          <ScalarProperty Name="credit_points" ColumnName="credit_points" />
+          <ScalarProperty Name="program_degree" ColumnName="program_degree" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="EUnivModel.student">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
+          <ScalarProperty Name="year_of_studing" ColumnName="year_of_studing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EUnivModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="EUnivModel.teacher">
+        <MappingFragment StoreEntitySet="teachers">
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="chair" ColumnName="chair" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test_attemts">
+      <EntityTypeMapping TypeName="EUnivModel.test_attemts">
+        <MappingFragment StoreEntitySet="test_attemts">
+          <ScalarProperty Name="test_attemt" ColumnName="test_attemt" />
+          <ScalarProperty Name="test_date" ColumnName="test_date" />
+          <ScalarProperty Name="test_name" ColumnName="test_name" />
+          <ScalarProperty Name="test_type" ColumnName="test_type" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="course_id" ColumnName="course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="EUnivModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="secondname" ColumnName="secondname" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

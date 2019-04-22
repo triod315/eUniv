@@ -54,3 +54,7 @@ D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\obj\Debug\EUniv.csproj.Co
 D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\obj\Debug\EUniv.csproj.CopyComplete
 D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\obj\Debug\EUniv.dll
 D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\obj\Debug\EUniv.pdb
+D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\bin\EntityFramework.dll
+D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\bin\EntityFramework.SqlServer.dll
+D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\bin\EntityFramework.xml
+D:\triod315\2 курс\DataBasesEssentials\EUniv\EUniv\bin\EntityFramework.SqlServer.xml
