@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A47F8D_EUnivModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK__admins__user_nam__30F848ED" FromRole="admins" ToRole="users" />
+  </EntityType>
+  <EntityType Name="cours">
+    <Key>
+      <PropertyRef Name="cousre_id" />
+    </Key>
+    <Property Name="cousre_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="course_name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="course_type" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="program_id" Type="Int32" />
+    <Property Name="teacher_id" Type="Int32" />
+    <NavigationProperty Name="program" Relationship="Self.FK__courses__program__33D4B598" FromRole="courses" ToRole="programs" />
+    <NavigationProperty Name="teacher" Relationship="Self.FK__courses__teacher__34C8D9D1" FromRole="courses" ToRole="teachers" />
+    <NavigationProperty Name="test_attemts" Relationship="Self.FK__test_atte__cours__398D8EEE" FromRole="courses" ToRole="test_attemts" />
+  </EntityType>
+  <EntityType Name="program">
+    <Key>
+      <PropertyRef Name="program_id" />
+    </Key>
+    <Property Name="program_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="program_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="credit_points" Type="Int32" />
+    <Property Name="program_degree" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="courses" Relationship="Self.FK__courses__program__33D4B598" FromRole="programs" ToRole="courses" />
+    <NavigationProperty Name="students" Relationship="Self.FK__students__progra__286302EC" FromRole="programs" ToRole="students" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="program_id" Type="Int32" />
+    <Property Name="year_of_studing" Type="Int32" />
+    <NavigationProperty Name="program" Relationship="Self.FK__students__progra__286302EC" FromRole="students" ToRole="programs" />
+    <NavigationProperty Name="user" Relationship="Self.FK__students__user_n__29572725" FromRole="students" ToRole="users" />
+    <NavigationProperty Name="test_attemts" Relationship="Self.FK__test_atte__stude__38996AB5" FromRole="students" ToRole="test_attemts" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+    </Key>
+    <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="chair" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="courses" Relationship="Self.FK__courses__teacher__34C8D9D1" FromRole="teachers" ToRole="courses" />
+    <NavigationProperty Name="user" Relationship="Self.FK__teachers__user_n__2D27B809" FromRole="teachers" ToRole="users" />
+  </EntityType>
+  <EntityType Name="test_attemts">
+    <Key>
+      <PropertyRef Name="test_attemt" />
+    </Key>
+    <Property Name="test_attemt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="test_date" Type="DateTime" Precision="0" />
+    <Property Name="test_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="test_type" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="mark" Type="Int32" />
+    <Property Name="grade" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="student_id" Type="Int32" />
+    <Property Name="course_id" Type="Int32" />
+    <NavigationProperty Name="cours" Relationship="Self.FK__test_atte__cours__398D8EEE" FromRole="test_attemts" ToRole="courses" />
+    <NavigationProperty Name="student" Relationship="Self.FK__test_atte__stude__38996AB5" FromRole="test_attemts" ToRole="students" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="passwd" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="secondname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="admins" Relationship="Self.FK__admins__user_nam__30F848ED" FromRole="users" ToRole="admins" />
+    <NavigationProperty Name="students" Relationship="Self.FK__students__user_n__29572725" FromRole="users" ToRole="students" />
+    <NavigationProperty Name="teachers" Relationship="Self.FK__teachers__user_n__2D27B809" FromRole="users" ToRole="teachers" />
+  </EntityType>
+  <Association Name="FK__admins__user_nam__30F848ED">
+    <End Role="users" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="admins" Type="Self.admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="admins">
+        <PropertyRef Name="user_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__courses__program__33D4B598">
+    <End Role="programs" Type="Self.program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="courses" Type="Self.cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="programs">
+        <PropertyRef Name="program_id" />
+      </Principal>
+      <Dependent Role="courses">
+        <PropertyRef Name="program_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__courses__teacher__34C8D9D1">
+    <End Role="teachers" Type="Self.teacher" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="courses" Type="Self.cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachers">
+        <PropertyRef Name="teacher_id" />
+      </Principal>
+      <Dependent Role="courses">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__test_atte__cours__398D8EEE">
+    <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+    <End Role="test_attemts" Type="Self.test_attemts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cousre_id" />
+      </Principal>
+      <Dependent Role="test_attemts">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__students__progra__286302EC">
+    <End Role="programs" Type="Self.program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="students" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="programs">
+        <PropertyRef Name="program_id" />
+      </Principal>
+      <Dependent Role="students">
+        <PropertyRef Name="program_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__students__user_n__29572725">
+    <End Role="users" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="students" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="students">
+        <PropertyRef Name="user_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__test_atte__stude__38996AB5">
+    <End Role="students" Type="Self.student" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="test_attemts" Type="Self.test_attemts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="test_attemts">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teachers__user_n__2D27B809">
+    <End Role="users" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="teachers" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="teachers">
+        <PropertyRef Name="user_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EUnivEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="courses" EntityType="Self.cours" />
+    <EntitySet Name="programs" EntityType="Self.program" />
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="teachers" EntityType="Self.teacher" />
+    <EntitySet Name="test_attemts" EntityType="Self.test_attemts" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK__admins__user_nam__30F848ED" Association="Self.FK__admins__user_nam__30F848ED">
+      <End Role="users" EntitySet="users" />
+      <End Role="admins" EntitySet="admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__courses__program__33D4B598" Association="Self.FK__courses__program__33D4B598">
+      <End Role="programs" EntitySet="programs" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__courses__teacher__34C8D9D1" Association="Self.FK__courses__teacher__34C8D9D1">
+      <End Role="teachers" EntitySet="teachers" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__test_atte__cours__398D8EEE" Association="Self.FK__test_atte__cours__398D8EEE">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="test_attemts" EntitySet="test_attemts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__students__progra__286302EC" Association="Self.FK__students__progra__286302EC">
+      <End Role="programs" EntitySet="programs" />
+      <End Role="students" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__students__user_n__29572725" Association="Self.FK__students__user_n__29572725">
+      <End Role="users" EntitySet="users" />
+      <End Role="students" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__test_atte__stude__38996AB5" Association="Self.FK__test_atte__stude__38996AB5">
+      <End Role="students" EntitySet="students" />
+      <End Role="test_attemts" EntitySet="test_attemts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teachers__user_n__2D27B809" Association="Self.FK__teachers__user_n__2D27B809">
+      <End Role="users" EntitySet="users" />
+      <End Role="teachers" EntitySet="teachers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

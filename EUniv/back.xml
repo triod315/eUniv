@@ -1,0 +1,1 @@
+connectionString="metadata=res://*/EUnivDB.csdl|res://*/EUnivDB.ssdl|res://*/EUnivDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=sql6004.site4now.net;user id=DB_A47F8D_EUniv_admin;password=DBPassword1@;MultipleActiveResultSets=True;App=EntityFramework&quot;"

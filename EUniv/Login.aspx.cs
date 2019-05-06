@@ -4,17 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 
 namespace EUniv
 {
-    
     public partial class Login : System.Web.UI.Page
     {
         public static string username;
-        string DB = "Data Source=DESKTOP-5582JAK\\SQLEXPRESS;Initial Catalog=EUniv;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -46,14 +41,14 @@ namespace EUniv
                                  where st.user_name == TextBox1.Text
                                  select st;
                     var student = query2.FirstOrDefault<student>();
-                    if (student != null) Response.Redirect("~/Student.aspx");
+                    if (student != null) Response.Redirect("/EUniv/EUniv/Student.aspx");
 
                     var query3 = from tc in db.teachers
                                  where tc.user_name == TextBox1.Text
                                  select tc;
                     var tcr = query3.FirstOrDefault<teacher>();
-                    if (tcr != null) Response.Redirect("~/Teacher.aspx");
-                    Response.Redirect("~/Admin.aspx");
+                    if (tcr != null) Response.Redirect("/EUniv/EUniv/Teacher.aspx");
+                    Response.Redirect("/EUniv/EUniv/Admin.aspx");
                 }
                 else
                 {
@@ -61,7 +56,7 @@ namespace EUniv
                     this.Controls.Add(errLabel);
                 }
             }
-            
+
         }
     }
 }

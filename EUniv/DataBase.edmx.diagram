@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d48bea23511f4a1aa9629fdfabd37c00" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="d48bea23511f4a1aa9629fdfabd37c00" Name="Diagram1" ZoomLevel="68">
         <EntityTypeShape EntityType="EUnivModel.admin" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EUnivModel.cours" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="EUnivModel.program" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EUnivModel.student" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EUnivModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EUnivModel.teacher" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EUnivModel.test_attemts" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EUnivModel.test_attemts" Width="1.5" PointX="9" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EUnivModel.user" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="EUnivModel.FK__admins__user_nam__10216507" ManuallyRouted="false" />
         <AssociationConnector Association="EUnivModel.FK__courses__program__12FDD1B2" ManuallyRouted="false" />
